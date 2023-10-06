@@ -9,6 +9,8 @@ namespace Microsoft.DSX.ProjectTemplate.Data
         public AutoMapperProfile()
         {
             CreateMap<Group, GroupDto>();
+
+            CreateMap<Trade, TradeDto>();
         }
     }
 }

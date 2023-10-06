@@ -245,6 +245,40 @@ namespace Microsoft.DSX.ProjectTemplate.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Microsoft.DSX.ProjectTemplate.Data.Models.Trade", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int")
+                    .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                b.Property<DateTime>("CreatedDate")
+                    .HasColumnType("datetime2");
+
+                b.Property<int?>("DefaultLibraryId")
+                    .HasColumnType("int");
+
+                b.Property<bool>("IsActive")
+                    .HasColumnType("bit");
+
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(512)")
+                    .HasMaxLength(512);
+
+                b.Property<DateTime>("UpdatedDate")
+                    .HasColumnType("datetime2");
+
+                b.HasKey("Id");
+
+                b.HasIndex("DefaultLibraryId");
+
+                b.HasIndex("Name")
+                    .IsUnique();
+
+                b.ToTable("Trades");                
+            });
+
             modelBuilder.Entity("Microsoft.DSX.ProjectTemplate.Data.Models.Project", b =>
                 {
                     b.HasOne("Microsoft.DSX.ProjectTemplate.Data.Models.Group", "Group")
